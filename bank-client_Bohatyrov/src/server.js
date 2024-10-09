@@ -8,7 +8,7 @@ import sessionFileStore from 'session-file-store'; // npm install session-file-s
 const { json } = require('body-parser');
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
-const FileStore = new sessionFileStore(session);// faili salvestamine
+const FileStore = new sessionFileStore(session);	// faili salvestamine
 polka() // You can also use Express
 	.use(
 		compression({ threshold: 0 }),
