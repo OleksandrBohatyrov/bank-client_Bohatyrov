@@ -4,11 +4,15 @@ import compression from 'compression';
 import * as sapper from '@sapper/server';
 import session from 'express-session';
 import sessionFileStore from 'session-file-store'; // npm install session-file-store
-
 const { json } = require('body-parser');
+
+
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
-const FileStore = new sessionFileStore(session);	// faili salvestamine
+const FileStore = new sessionFileStore(session);
+
+
+
 polka() // You can also use Express
 	.use(
 		compression({ threshold: 0 }),
@@ -28,7 +32,7 @@ polka() // You can also use Express
 		sapper.middleware({
 			session: req => ({
 				user: req.session && req.session.user,
-				token: req.session && req.session.token,
+				token: req.session && req.session.token
 			})
 		})
 	)
